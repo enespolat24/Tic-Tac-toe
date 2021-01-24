@@ -8,7 +8,6 @@ namespace TicTacToe
 {
     class MarkType
     {
-
-
+        Console.Writeline("hello");
     }
 }
