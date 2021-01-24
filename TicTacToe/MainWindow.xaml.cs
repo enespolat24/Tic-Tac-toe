@@ -20,14 +20,22 @@ namespace TicTacToe
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Private members
+
+
+
+        #endregion
+
+        #region Constructor
         /// <summary>
         /// Default Constructor
         /// </summary>
-       #region
+
         public MainWindow()
         {
             InitializeComponent();
             NewGame();
+
         }
         #endregion
         private void NewGame()
