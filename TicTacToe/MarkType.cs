@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TicTacToe
 {
-    /// <summary>
-    /// The type of value a cell in the gameboard is currently at
-    /// </summary>
+   
+    // The type of value a cell in the gameboard is currently at
+   
    public enum MarkType
     {
         Free,//the cell hasn't been clicked yet
