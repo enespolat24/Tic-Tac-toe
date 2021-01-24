@@ -61,7 +61,7 @@ namespace TicTacToe
             Container.Children.Cast<Button>().ToList().ForEach(button =>
             {
                 button.Content = string.Empty;
-                button.Background = Brushes.PapayaWhip;
+                button.Background = Brushes.WhiteSmoke;
                 button.Foreground = Brushes.Blue;
             });
             mGameEnded = false; //the game has not finished yet
@@ -101,11 +101,30 @@ namespace TicTacToe
                 mResults[index] = MarkType.Nought;
             }
 
-            button.Content = mPlayer1Turn ? "x" : "O";
+            button.Content = mPlayer1Turn ? "X" : "O";
 
+            //change noughts to green
+            if (!mPlayer1Turn)
+            {
+                button.Foreground = Brushes.Red;
+            }
 
             //toggle the players turns
             mPlayer1Turn ^= true;
+
+
+            //winner check
+            CheckForWinner();
+        }
+        //checks if there's a winner of a 3 line straight
+        private void CheckForWinner()
+        {
+            //check for horizontal winner
+            if (mResults[0] != MarkType.Free && (mResults[1] & mResults[2]) == mResults[0])
+            {
+                Console.WriteLine("kazandı");
+            }
+                
         }
     }
 }

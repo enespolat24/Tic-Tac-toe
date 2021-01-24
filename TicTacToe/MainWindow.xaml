@@ -15,7 +15,7 @@
             <Setter Property="BorderBrush" Value="#30475e" />
             <Setter Property="BorderThickness" Value="3" />
            
-            <Setter Property="FontSize" Value="100" />
+            <Setter Property="FontSize" Value="90" />
             <Setter Property="Cursor" Value="Pen" />
         </Style>
     </Window.Resources>
