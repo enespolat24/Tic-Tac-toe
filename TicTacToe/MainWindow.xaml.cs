@@ -119,12 +119,115 @@ namespace TicTacToe
         //checks if there's a winner of a 3 line straight
         private void CheckForWinner()
         {
-            //check for horizontal winner
+            #region Horizontal
+
+            //check for horizontal winner row 0
             if (mResults[0] != MarkType.Free && (mResults[1] & mResults[2]) == mResults[0])
             {
-                Console.WriteLine("kazandı");
+                //game over
+                mGameEnded = true;
+
+                //higlight winning move
+                Button0_0.Background = Button1_0.Background = Button2_0.Background = Brushes.Green;
             }
-                
+
+
+
+            //check for horizontal winner row 1
+            if (mResults[3] != MarkType.Free && (mResults[4] & mResults[5]) == mResults[3])
+            {
+                //game over
+                mGameEnded = true;
+
+                //higlight winning move
+                Button0_1.Background = Button1_1.Background = Button2_1.Background = Brushes.Green;
+            }
+
+
+
+            //check for horizontal winner row 2
+            if (mResults[6] != MarkType.Free && (mResults[7] & mResults[8]) == mResults[6])
+            {
+                //game over
+                mGameEnded = true;
+
+                //higlight winning move
+                Button0_2.Background = Button1_2.Background = Button2_2.Background = Brushes.Green;
+            }
+            #endregion
+
+            #region Vertical
+            //check for vertical winner row 0
+            if (mResults[0] != MarkType.Free && (mResults[3] & mResults[6]) == mResults[0])
+            {
+                //game over
+                mGameEnded = true;
+
+                //higlight winning move
+                Button0_0.Background = Button0_1.Background = Button0_2.Background = Brushes.Green;
+            }
+
+
+            //check for vertical winner row 1
+            if (mResults[1] != MarkType.Free && (mResults[4] & mResults[7]) == mResults[1])
+            {
+                //game over
+                mGameEnded = true;
+
+                //higlight winning move
+                Button1_0.Background = Button1_1.Background = Button1_2.Background = Brushes.Green;
+            }
+
+
+
+            //check for vertical winner row 2
+            if (mResults[2] != MarkType.Free && (mResults[5] & mResults[8]) == mResults[2])
+            {
+                //game over
+                mGameEnded = true;
+
+                //higlight winning move
+                Button2_0.Background = Button2_1.Background = Button2_2.Background = Brushes.Green;
+            }
+
+
+            #endregion
+
+            #region Diagonal
+            //check for diagonal winner row 0
+            if (mResults[0] != MarkType.Free && (mResults[4] & mResults[8]) == mResults[0])
+            {
+                //game over
+                mGameEnded = true;
+
+                //higlight winning move
+                Button0_0.Background = Button1_1.Background = Button2_2.Background = Brushes.Green;
+            }
+
+
+
+            if (mResults[6] != MarkType.Free && (mResults[4] & mResults[2]) == mResults[6])
+            {
+                //game over
+                mGameEnded = true;
+
+                //higlight winning move
+                Button0_2.Background = Button1_1.Background = Button2_0.Background = Brushes.Green;
+            }
+            #endregion
+            #region No winner
+            //if there's no winner
+            if (!mResults.Any(rslt => rslt == MarkType.Free))
+            {
+                mGameEnded = true;
+
+                //turn all cells orange
+                Container.Children.Cast<Button>().ToList().ForEach(button =>
+                {
+                    button.Background = Brushes.Orange;
+                });
+            }
+            #endregion
         }
     }
 }
