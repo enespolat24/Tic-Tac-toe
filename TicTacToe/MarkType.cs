@@ -8,5 +8,7 @@ namespace TicTacToe
 {
     class MarkType
     {
+
+
     }
 }
