@@ -100,6 +100,12 @@ namespace TicTacToe
             {
                 mResults[index] = MarkType.Nought;
             }
+
+            button.Content = mPlayer1Turn ? "x" : "O";
+
+
+            //toggle the players turns
+            mPlayer1Turn ^= true;
         }
     }
 }
